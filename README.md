@@ -1,4 +1,4 @@
-# Labeling and Evaluating Modes of AI Usage (LEMAI): Short Description
+# Labeling and Evaluating Modes of AI Usage (LEMAI)
 
 *A Workflow Transparency and Specification Model for Human–AI Collaboration*
 
@@ -27,6 +27,17 @@ This framework aims to **enable transparency and standardization in policies aro
 
 3. Content tool providers can **determine the workflow stage that is impacted by their AI-based tool and at what level of AI usage**, and communicate that information to their creators to include in disclosures.
 4. AI detectors — such as GPTZero, AI Detector, and Copyleaks — can be **potentially more granular about the workflow stage at which a content creator made use of AI**. For example, using an "AI reviewer" (i.e., AI at the Review stage) can be differentiated from using an LLM to produce whole copy (i.e., AI at the Work stage), since it's possible that the former could be more acceptable than the latter.
+
+
+
+## Getting Started
+
+The full framework discussion is in `docs/lemai-framework.md`.
+
+An initial prompt for generating AI usage charts and short-form strings is in the `/prompts` directory. Just replace the `{{USER_INPUT}}` string with a description of your workflow's AI usage. For determining workflows in implied descriptions, I recommend a two step process:
+
+1. ask your favorite LLM to describe explicityly the implied workflow, and
+2. then ask it to generate the AI usage chart.
 
 
 
@@ -247,278 +258,9 @@ What constitutes Level 1 usage at the Design stage? What constitutes Level 2 at 
 
 
 
-## Current Maturity Model Landscape
+## Other Models and In-Depth Examples
 
-You can't drop a hat without hitting a maturity model these days. So far, the models for human-AI collaboration created by Gartner, Google, Microsoft, and OpenAI typically focus on overall enterprise-level adoption, integration, and maturity, and not workflow and deliverables, so I thought there would be space for another taxonomy/system.
-
-### 1. Google's People + AI Guidebook
-
-Reference: [Web site](https://pair.withgoogle.com/guidebook/)
-
-Google’s People + AI (PAIR) Guidebook is a **design framework for human-centered AI systems**, focusing on UX principles like explainability, trust, feedback, and error handling. It helps teams build AI products that are usable and understandable, emphasizing how humans interact with AI rather than how AI is adopted or measured. In contrast, the LEMAI framework evaluates **where and how AI is used within workflows**, providing a structured, stage-based transparency and accountability lens.
-
-- **Similarities:** Both emphasize responsible AI, human oversight, and trust in outputs
-- **Differences:** Google = UX/design guidance for AI systems; LEMAI = workflow-level classification and usage transparency
-
-### 2. AI Acceptable Use Policies (AUPs)
-
-Reference: [TechTarget](https://www.techtarget.com/searchsecurity/tip/How-to-create-an-AI-acceptable-use-policy-plus-template); [Tenable](https://www.tenable.com/blog/security-for-ai-a-practical-guide-to-enforcing-your-ai-acceptable-use-policy)
-
-AI Acceptable Use Policies (AUPs) — two examples from TechTarget and Tenable are linked above — are **governance frameworks that define how employees and systems are allowed to use AI tools** within an organization. They focus on risk management, compliance, and security controls, covering areas such as data handling, approved tools, prohibited use cases, and monitoring. These policies are designed to prevent misuse and reduce organizational risk. In contrast, the LEMAI framework evaluates how AI is actually used within a workflow, providing a transparent, stage-by-stage classification of AI involvement and associated risks rather than prescribing allowed behavior.
-
-- **Similarities:** Both emphasize responsible AI use; address risk and governance; support organizational transparency; can be standardized and applied across teams
-- **Differences:** AUPs = prescriptive rules and controls for AI usage; LEMAI = descriptive model of actual AI usage within workflows; AUPs define what should be allowed, while LEMAI reveals what actually happened and where risks exist
-
-### 3. Gartner's AI Maturity Model & Roadmap Toolkit
-
-Reference: [Web site](https://www.gartner.com/en/chief-information-officer/research/ai-maturity-model-toolkit)
-
-Gartner’s AI Maturity Model & Roadmap Toolkit is an **enterprise planning framework** that benchmarks organizations across stages of AI maturity and provides a roadmap for scaling AI capabilities. It focuses on **strategy, governance, operating models, and investment alignment**, helping leaders prioritize initiatives and close capability gaps. In contrast, the LEMAI framework evaluates **AI usage within specific workflows**, offering granular transparency into how AI contributes at each stage rather than guiding enterprise transformation.
-
-- **Similarities:** Both classify AI maturity; emphasize progression, governance, and responsible use
-- **Differences:** Gartner = strategic roadmap and capability benchmarking; LEMAI = workflow-level usage classification and transparency scoring
-
-### 4. ToS;DR Privacy Ratings
-
-**Reference:** [Terms of Service; Didn't Read](https://tosdr.org/)
-
-ToS;DR (Terms of Service; Didn’t Read) is a **community-driven privacy and terms-of-service rating system** that evaluates websites and services based on how their policies affect users. It assigns **letter grades (A–E)** derived from a set of analyzed clauses (e.g., data sharing, tracking, user rights), translating complex legal documents into a simplified, user-friendly score. The framework focuses on **user risk and fairness of policies**, helping people quickly understand whether a service respects their privacy. In contrast, the LEMAI framework evaluates **how AI is used within a workflow**, providing a structured, stage-by-stage breakdown of AI involvement and associated risks rather than judging the quality of a policy.
-
-- **Similarities:** Both simplify complex systems into accessible scores; aim to improve transparency and user understanding; enable comparisons across entities; can be represented visually (grades vs. stage matrix)
-- **Differences:** ToS;DR = evaluates **policy outcomes and user risk** using external analysis; LEMAI = describes **process behavior and AI usage** via self-disclosed workflow scoring; ToS;DR uses a **single aggregate grade**, while LEMAI provides a **multi-dimensional, stage-level breakdown** with explicit risk modeling
-
-### 5. Content Credentials
-
-**Reference:** [Adobe's Content Credentials site](https://helpx.adobe.com/creative-cloud/apps/adobe-content-authenticity/content-credentials/overview.html)
-
-Content Credentials (from the Coalition for Content Provenance and Authenticity) are a **provenance and authenticity framework** that attaches cryptographically verifiable metadata to digital assets, documenting how content was created, edited, and by whom. It focuses on **file-level transparency and trust**, enabling verification of content origin and modification history. In contrast, the LEMAI framework evaluates **AI usage within workflows**, providing a stage-by-stage view of how AI contributes to content creation and where associated risks arise.
-
-- **Similarities:** Both promote transparency and trust; distinguish human vs. AI involvement; support standardization; align with attribution and verification principles
-- **Differences:** Content Credentials = **cryptographically verifiable provenance at the asset level**; LEMAI = **self-declared, workflow-level AI usage and risk model**; Content Credentials track *what happened to a file*, while LEMAI explains *how AI was used and where risks exist***
-
-### 6. Google Cloud’s AI Adoption Framework 
-
-Reference: [PDF](https://services.google.com/fh/files/misc/ai_adoption_framework_whitepaper.pdf)
-
-Google Cloud’s AI Adoption Framework is a **maturity model for organizational AI capability**, mapping progress across themes like Learn, Lead, Scale, and Automate and phases from tactical to transformational . It evaluates **people, process, data, and technology readiness**, not specific workflows. In contrast, the LEMAI framework evaluates **AI usage within discrete workflows (I→F stages)**, focusing on transparency and accountability at the task level rather than enterprise capability.
-
-- **Similarities:** Both classify AI maturity; emphasize progression, structure, and responsible adoption
-- **Differences:** Google = org-level capability model; LEMAI = workflow-level usage and transparency scoring
-
-### 7. OpenAI's' Human-in-the-Loop Spectrum
-
-Reference: [Web site](https://openai.github.io/openai-agents-python/human_in_the_loop/)
-
-OpenAI’s Human-in-the-Loop Spectrum defines **levels of human involvement in AI systems**, from full human control to autonomous agents with optional oversight. It focuses on **control, intervention points, and safety boundaries** in agent workflows, helping developers decide when humans should review, approve, or override AI actions. In contrast, the LEMAI framework evaluates **how much AI contributes across workflow stages**, emphasizing transparency and accountability rather than control mechanisms.
-
-- **Similarities:** Both assess human vs AI roles; emphasize oversight, responsibility, and safe usage
-- **Differences:** OpenAI = control spectrum within agent systems; LEMAI = stage-based workflow classification and transparency scoring
-
-### 8. Microsoft's Guidelines for Human-AI Interaction
-
-Reference: [Web site](https://www.microsoft.com/en-us/research/project/guidelines-for-human-ai-interaction/)
-
-Microsoft’s Human-AI Interaction Guidelines are a **design and UX framework** outlining best practices for how AI systems should behave across stages (e.g., initial interaction, ongoing use, error handling). They emphasize **user expectations, transparency, feedback, and trust**, guiding how AI communicates and collaborates with humans over time. In contrast, the LEMAI framework evaluates **AI usage within workflows**, quantifying where AI contributes and how responsibility is distributed, rather than prescribing interaction behaviors.
-
-- **Similarities:** Both emphasize transparency, trust, and clear human-AI roles
-- **Differences:** Microsoft = interaction design principles for AI systems; LEMAI = workflow-level classification and usage transparency scoring
-
-### 9. McKinsey's AI Governance and Maturity model
-
-Reference: [Web site](https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/tech-forward/state-of-ai-trust-in-2026-shifting-to-the-agentic-era)
-
-McKinsey’s AI maturity model (as reflected in its State of AI research) is an **enterprise-level benchmarking framework**that assesses how organizations progress from experimentation to scaled, value-generating AI—now evolving toward **agentic AI systems embedded in operations**. It emphasizes **business impact, governance, trust, and scaling AI across functions**, helping executives align strategy, talent, and risk management. In contrast, the LEMAI framework evaluates **AI usage within specific workflows**, focusing on transparency, stage-level contribution, and accountability rather than organizational transformation.
-
-- **Similarities:** Both emphasize maturity progression, trust, and responsible AI adoption
-- **Differences:** McKinsey = enterprise adoption and value realization; LEMAI = workflow-level usage classification and transparency scoring
-
- 
-
-## Examples Scoring of Some AI-Usage Policies
-
-### Arnold’s Pump Club Editorial Standards
-
-Reference: [Web site](https://arnoldspumpclub.com/blogs/newsletter/arnold-schwarzenegger-s-200-000-gamble-and-how-one-word-keeps-him-focused)
-
-> ...
-> 
->Does AI play a role? Not for the primary content, but it is used in two ways. The main items are original content written by the APC team. The summaries at the end are AI-generated based on the human-written content above. We also use an AI tool to review our interpretations of the research and ensure scientific accuracy. We don’t assume AI is right, but we use technology to hold ourselves accountable.
-> 
->...
-
-```
-AI-L1 [I1,D0,W0,R1,V1,F0]
-
-        ⚙️      🧍
-Ideate : ⬛🟦🟦🟦 AI: Limited summarizing; Human: Research, select topics, and frame editorial
-Design : 🟦🟦🟦🟦 Human: Writes all core articles, commentary, and editorial pieces
-Work   : 🟦🟦🟦🟦 Human: Fully responsible for producing, editing, and structuring content
-Review : ⬛🟦🟦🟦 AI: Flags possible inaccuracies; Human: Evaluate AI feedback, apply edits
-Valid  : ⬛🟦🟦🟦 AI: Assist interpreting accuracy; Human: Check facts, validate sources
-Final  : 🟦🟦🟦🟦 Human: Makes all final calls on content, partnerships, and publication
-
-Overall: ⬛🟦🟦🟦
-- AI assists in some research and content-checking capacity; humans produce content and have tight control over editorial
-```
-
-
-
-### Quanta Magazine's AI Editorial Policy
-
-Reference: [Web site](https://www.quantamagazine.org/ai-editorial-policy/)
-
-> ...
->
-> Artificial intelligence is not just a potential tool in our newsroom. It’s part of our mission to understand AI, [cover advances in the field](https://www.quantamagazine.org/tag/artificial-intelligence/) and [explain its origins and impact](https://www.quantamagazine.org/series/science-in-the-age-of-ai/) to our readers. We have been covering AI since well before GenAI tools became widely available, so we understand its capabilities, limitations and potential, and follow changes closely.
->
-> ...
-
-```
-AI-L1 [I1,D1*,W0,R0,V0,F0]*
-
-        ⚙️      🧍
-Ideate : ⬛🟦🟦🟦  AI: background info, tools; Human: framing, reporting, direction  
-Design : ⬛🟦🟦🟦  AI: minor assistance; Human: structure, editorial planning*  
-Work   : 🟦🟦🟦🟦  Human: writing, creation, storytelling  
-Review : 🟦🟦🟦🟦  Human: editing, revising, oversight  
-Valid  : 🟦🟦🟦🟦  Human: fact-checking, verification, accuracy  
-Final  : 🟦🟦🟦🟦  Human: publishing, formatting, accountability  
-* Not enough information to determine AI-usage level
-
-Overall: ⬛🟦🟦🟦  
-- Human-led journalism, minimal AI assistance, strict editorial control
-```
-
-
-
-### Every.to's Editorial Guidelines
-
-Reference: [Web site](https://every.to/guides/editorial-guidelines)
-
-> ...
->
-> AI is an integral part of how we achieve this mission. As AI develops, so has our use and the standards that we apply. These guidelines are meant to make our processes transparent and will evolve as we continue to experiment.
->
-> ...
-
-```
-AI-L2 [I2,D2*,W2,R2,V2*,F1]
-
-⬛ = AI-driven  
-🟦 = Human-driven  
-
-        ⚙️      🧍
-Ideate : ⬛⬛🟦🟦  AI: brainstorming, research prompts; Human: direction, framing
-Design : ⬛⬛🟦🟦  AI: suggest structure; Human: define editorial standards *
-Work   : ⬛⬛🟦🟦  AI: draft text, metaphors; Human: author voice, shape
-Review : ⬛⬛🟦🟦  AI: refine clarity, headlines; Human: edit, approve
-Valid  : ⬛⬛🟦🟦  AI: analyze performance; Human: fact-check, accountability *
-Final  : ⬛🟦🟦🟦  AI: formatting support; Human: publish, sign-off
-
-* Not enough information to determine AI-usage level
-
-Overall: ⬛⬛🟦🟦  
-- Human-led writing with strong AI collaboration across stages
-```
-
-
-
-### Trail of Bits AI-Native Audit System Workflow
-
-Reference: [Column](https://tldrsec.com/p/how-we-made-trail-of-bits-ai-native-so-far)
-
-> ...
->
-> At Trail of Bits, what this means concretely: our security expertise compounds as code. Every engagement we do, the skills and workflows we build make the next engagement faster. Every engineer operates with an arsenal of specialized agents built from 14 years of audit knowledge. That's not "we use AI." That's "AI is on the team."
->
-> ...
-
-#### Implied Workflow (AI-Native Audit System)
-
-Since Trail of Bits does not have a stated policy, I tasked an LLM to create one based on the column by Clint Gibler and Dan Guido (linked above). It noted that the post describes a system-level workflow, not a single task and identified the implied workflow as:
-
-##### 1. Ideation (Problem Framing + Targeting)
-
-- Humans define audit scope, risks, and goals
-- AI agents help explore attack surfaces and generate hypotheses
-
-##### 2. Design (Workflow + Agent System Design)
-
-- Humans design workflows, guardrails, and constraints
-- AI contributes reusable “skills,” configs, and prior patterns
-
-##### 3. Work (Execution via Agents)
-
-- AI agents run analysis across codebases in parallel
-- AI generates findings, drafts reports, surfaces vulnerabilities
-- Humans orchestrate agents and guide execution
-
-##### 4. Review (Human + AI Iteration)
-
-- AI performs first-pass triage and clustering of issues
-- Humans review outputs, refine, and prioritize findings
-
-##### 5. Validation (Critical Human Oversight)
-
-- Humans validate all findings before client delivery
-- AI may assist with cross-checking or reproducing issues
-
-##### 6. Finalization (Delivery + Knowledge Capture)
-
-- Humans finalize reports and communicate results
-- AI systems capture workflows as reusable “skills” and artifacts
-- Outputs feed back into the system (compounding knowledge)
-
-```
-AI-L3 [I2,D2,W3,R3,V2,F2]
-
-        ⚙️      🧍
-Ideate : ⬛⬛🟦🟦  AI: surface risks, hypotheses; Human: scope, priorities  
-Design : ⬛⬛🟦🟦  AI: reuse patterns, configs; Human: workflows, constraints  
-Work   : ⬛⬛⬛🟦  AI: run agents, find bugs; Human: orchestrate, guide  
-Review : ⬛⬛⬛🟦  AI: triage, cluster findings; Human: refine, prioritize  
-Valid  : ⬛⬛🟦🟦  AI: assist checks; Human: verify, approve findings  
-Final  : ⬛⬛🟦🟦  AI: package artifacts, reuse; Human: deliver, communicate  
-
-Overall: ⬛⬛⬛🟦  
-- AI agents execute audits; humans orchestrate, validate, and deliver
-```
-
-
-
-### New York City Small Business Chatbot
-
-**Reference:** [The Markup](https://themarkup.org/artificial-intelligence/2024/03/29/nycs-ai-chatbot-tells-businesses-to-break-the-law)
-
-#### Full Workflow Summary (Compact)
-
-The demonstrates the utility of the LEMAI evaluation process for end-to-end automated workflows, an example of which are bespoke chatbot services. Using the description of the NYC chatbot from the linked article, the workflow of the chatbot is:
-
-1. **Ideate** — User asks a business/legal question
-2. **Design** — AI interprets intent + constructs response approach
-3. **Work** — LLM generates answer (with possible hallucination)
-4. **Review** — Weak or ineffective guardrails applied
-5. **Validate** — No real validation against legal ground truth
-6. **Finalize** — Output delivered as authoritative advice
-
-**Note:** The LEMAI framework does not measure correctness, just AI involvement, so the fact the the Review and Validate stages are poor quality has no bearing on their scores. However, full automation with poor review and validation suggest high legal risk, as noted.
-
-```
-AI-L4 [I0,D3*,W4,R2*,V4,F4]
- 
-          ⚙️      🧍
-Ideate   : 🟦🟦🟦🟦  Human: asks questions, defines intent
-Design   : ⬛⬛⬛🟦  AI: intent parsing, routing; Human: system setup*
-Work     : ⬛⬛⬛⬛  AI: generates answers, applies knowledge
-Review   : ⬛⬛🟦🟦  AI: guardrails, filters; Human: limited oversight*
-Validate : ⬛⬛⬛⬛  AI: automated validation, ineffective checks
-Finalize : ⬛⬛⬛⬛  AI: delivers responses, user-facing output
-
-* Not enough information to determine AI-usage level
-
-Overall: ⬛⬛⬛⬛  
-- Fully automated responses, no human validation, high legal risk
-```
+The full framework document in the `docs/` folder has a comparison to other AI usage and maturity models and several in-depth examples of applying the LEMAI framework.
 
 
 

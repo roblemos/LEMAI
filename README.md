@@ -34,9 +34,9 @@ This framework aims to **enable transparency and standardization in policies aro
 
 The full framework discussion is in `docs/lemai-framework.md`.
 
-An initial prompt for generating AI usage charts and short-form strings is in the `/prompts` directory. Just replace the `{{USER_INPUT}}` string with a description of your workflow's AI usage. For determining workflows in implied descriptions, I recommend a two step process:
+An initial prompt for generating AI usage charts and short-form strings is in the `/prompts` directory. Just replace the `{{USER_INPUT}}` string with a description of your workflow's AI usage. For determining workflows in implied descriptions, I recommend a two-step process:
 
-1. ask your favorite LLM to describe explicityly the implied workflow, and
+1. ask your favorite LLM to describe explicitly the implied workflow, and
 2. then ask it to generate the AI usage chart.
 
 

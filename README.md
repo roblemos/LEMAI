@@ -39,6 +39,8 @@ An initial prompt for generating AI usage charts and short-form strings is in th
 1. ask your favorite LLM to describe explicitly the implied workflow, and
 2. then ask it to generate the AI usage chart.
 
+I generated examples of the different levels at each workflow stage, which reside in the `workflow-stages/` directory.
+
 
 
 ## Details

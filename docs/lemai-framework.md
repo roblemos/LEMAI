@@ -45,14 +45,14 @@ The model and ranking can be combined to create a short-form description of AI u
 
 The model generalizes the workflow for content creation into six stages. The workflow model should work for all sorts of content-creation efforts, from books and articles, to software development and data analysis.
 
-| Code | Stage                                           |
-| ---- | ----------------------------------------------- |
-| I    | Ideate — Idea Generation / Brainstorming        |
-| D    | Design — Structure / Architecture               |
-| W    | Work — Writing / Coding                         |
-| R    | Review — Editing / Revising / Code Review       |
-| V    | Validate — Testing / Fact-checking              |
-| F    | Finalize — Formatting / Publishing / Deployment |
+| Code | Stage                                                |
+| ---- | ---------------------------------------------------- |
+| I    | Ideate — Idea Generation / Brainstorming             |
+| D    | Design — Structure / Architecture / Gather Materials |
+| W    | Work — Writing / Coding                              |
+| R    | Review — Editing / Revising / Code Review            |
+| V    | Validate — Testing / Fact-checking                   |
+| F    | Finalize — Formatting / Publishing / Deployment      |
 
 
 
@@ -166,12 +166,12 @@ Overall: ⬛⬛🟦🟦
 AI-L4 [I0,D2,W4,R3,V4,F4]
  
           ⚙️      🧍
-Ideate   : 🟦🟦🟦🟦  Human: asks questions, defines intent
-Design   : ⬛⬛🟦🟦  AI: intent parsing, routing; Human: refines request based on feedback
-Work     : ⬛⬛⬛⬛  AI: generates answers, applies knowledge
-Review   : ⬛⬛⬛🟦  AI: guardrails, filters; Human: limited oversight, responds to errors
-Validate : ⬛⬛⬛⬛  AI: automated validation, although veracity hard to determine
-Finalize : ⬛⬛⬛⬛  AI: delivers responses, user-facing output
+Ideate : 🟦🟦🟦🟦  Human: asks questions, defines intent
+Design : ⬛⬛🟦🟦  AI: intent parsing, routing; Human: refines request based on feedback
+Work   : ⬛⬛⬛⬛  AI: generates answers, applies knowledge
+Review : ⬛⬛⬛🟦  AI: guardrails, filters; Human: limited oversight, responds to errors
+Valid  : ⬛⬛⬛⬛  AI: automated validation, although veracity hard to determine
+Final  : ⬛⬛⬛⬛  AI: delivers responses, user-facing output
 
 Overall: ⬛⬛⬛⬛  
 - Fully automated responses, no human validation, high legal risk
